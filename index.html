@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plastic Savings Bottle Animation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <header class="header">
+        <h1>Plastic Saved</h1>
+        <div class="counter">
+          <span id="count">0</span>
+          <span class="unit">bottles</span>
+        </div>
+      </header>
+
+      <div class="stage" aria-label="Animated bottle showing plastic savings">
+        <!-- Responsive SVG -->
+        <svg id="scene" viewBox="0 0 520 520" role="img">
+          <defs>
+            <!-- Bottle silhouette path used for clipping -->
+            <path id="bottlePath"
+              d="M238 56
+                 C238 40 251 28 267 28
+                 H283
+                 C299 28 312 40 312 56
+                 V74
+                 C312 83 317 91 326 96
+                 C349 110 364 134 364 162
+                 V430
+                 C364 468 333 499 295 499
+                 H225
+                 C187 499 156 468 156 430
+                 V162
+                 C156 134 171 110 194 96
+                 C203 91 208 83 208 74
+                 V56
+                 Z" />
+
+            <clipPath id="bottleClip">
+              <use href="#bottlePath"></use>
+            </clipPath>
+
+            <!-- A simple small bottle icon to float (vector path) -->
+            <symbol id="miniBottle" viewBox="0 0 40 60">
+              <path d="M16 6 C16 3 18 1 21 1 H19 C22 1 24 3 24 6 V10
+                       C24 12 25 14 27 15 C31 18 34 23 34 29
+                       V50 C34 55 30 59 25 59 H15
+                       C10 59 6 55 6 50 V29
+                       C6 23 9 18 13 15 C15 14 16 12 16 10 V6 Z"
+                    fill="currentColor" opacity="0.9"/>
+              <path d="M12 30 H28" stroke="currentColor" stroke-width="3" opacity="0.35"/>
+            </symbol>
+
+            <!-- Soft blur for highlights -->
+            <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.2" />
+            </filter>
+          </defs>
+
+          <!-- Background (optional subtle grid) -->
+          <rect x="0" y="0" width="520" height="520" class="bg" />
+
+          <!-- Bottle outline -->
+          <use href="#bottlePath" class="bottle-outline"></use>
+
+          <!-- Inside content clipped to bottle -->
+          <g clip-path="url(#bottleClip)">
+            <!-- Water body (its top moves up, wave sits on top) -->
+            <rect id="waterRect" x="0" y="520" width="520" height="520" class="water"></rect>
+
+            <!-- Wave surface (animated path) -->
+            <path id="wavePath" class="wave" d=""></path>
+
+            <!-- Floating bottles container -->
+            <g id="floaters" class="floaters"></g>
+
+            <!-- Highlights -->
+            <path class="highlight" filter="url(#softBlur)"
+              d="M210 110 C195 160 194 220 194 280 C194 340 198 400 214 460
+                 C170 440 168 392 168 320 C168 240 175 160 210 110 Z" />
+          </g>
+
+          <!-- Bottle cap/neck accent -->
+          <rect x="245" y="30" width="30" height="16" rx="7" class="cap"></rect>
+          <rect x="235" y="46" width="50" height="18" rx="9" class="neck"></rect>
+        </svg>
+      </div>
+
+      <footer class="footer">
+        <button id="replay" type="button">Replay</button>
+
+        <!-- quick knobs (optional) -->
+        <div class="meta">
+          <span>Target: <strong>2500</strong></span>
+          <span>Full scale: <strong id="scaleLabel"></strong></span>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
