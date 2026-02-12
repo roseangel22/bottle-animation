@@ -1,0 +1,140 @@
+:root{
+  --bg: #0b1220;
+  --card: rgba(255,255,255,0.06);
+  --text: #e9eefc;
+  --muted: rgba(233,238,252,0.65);
+
+  --outline: rgba(233,238,252,0.8);
+  --glass: rgba(233,238,252,0.08);
+
+  --water: rgba(70, 160, 255, 0.55);
+  --wave: rgba(70, 160, 255, 0.78);
+  --floater: rgba(233,238,252,0.85);
+}
+
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: radial-gradient(1000px 600px at 20% 10%, rgba(70,160,255,0.25), transparent 55%),
+              radial-gradient(900px 600px at 85% 30%, rgba(120,90,255,0.20), transparent 60%),
+              var(--bg);
+  color: var(--text);
+}
+
+.wrap{
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.card{
+  width: min(860px, 96vw);
+  background: var(--card);
+  border: 1px solid rgba(233,238,252,0.14);
+  border-radius: 20px;
+  padding: 18px 18px 14px;
+  backdrop-filter: blur(10px);
+}
+
+.header{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 6px 10px;
+}
+h1{
+  font-size: 18px;
+  margin:0;
+  letter-spacing: 0.2px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.counter{
+  display:flex;
+  align-items: baseline;
+  gap: 10px;
+}
+#count{
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.unit{
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.stage{
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 10px 8px 8px;
+}
+#scene{
+  width: min(520px, 90vw);
+  height: auto;
+}
+
+.bg{
+  fill: rgba(255,255,255,0.02);
+}
+
+.bottle-outline{
+  fill: var(--glass);
+  stroke: var(--outline);
+  stroke-width: 4;
+}
+
+.cap{
+  fill: rgba(233,238,252,0.20);
+  stroke: rgba(233,238,252,0.45);
+  stroke-width: 2;
+}
+.neck{
+  fill: rgba(233,238,252,0.12);
+  stroke: rgba(233,238,252,0.45);
+  stroke-width: 2;
+}
+
+.water{ fill: var(--water); }
+.wave{ fill: var(--wave); }
+
+.floaters{
+  color: var(--floater);
+  opacity: 0.9;
+}
+
+.highlight{
+  fill: rgba(255,255,255,0.10);
+}
+
+.footer{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 6px 2px;
+}
+button{
+  appearance: none;
+  border: 1px solid rgba(233,238,252,0.22);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 650;
+}
+button:hover{
+  background: rgba(255,255,255,0.10);
+}
+.meta{
+  display:flex;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
